@@ -6,11 +6,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+
+//connecting to the database in sqlite
 builder.Services.AddDbContext<BookstoreContext>(options =>
 {
     options.UseSqlite(builder.Configuration["ConnectionStrings:BookConnection"]);
 });
 
+//registering the i and ef repositories
 builder.Services.AddScoped<IBookRepository, EFBookRepository>();
 
 var app = builder.Build();
@@ -30,6 +33,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+//we are cleaning up the url here
 app.MapControllerRoute("pagination", "Books/{pageNum}", new { Controller = "Home", action = "Index" });
 
 app.MapDefaultControllerRoute();

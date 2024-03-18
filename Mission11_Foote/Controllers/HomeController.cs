@@ -14,6 +14,7 @@ namespace Mission11_Foote.Controllers
             _repo = temp;
         }
 
+        //Setting 10 books per page
         public IActionResult Index(int pageNum)
         {
             int pageSize = 10;

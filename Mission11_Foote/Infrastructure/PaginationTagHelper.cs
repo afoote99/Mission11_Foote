@@ -25,7 +25,7 @@ namespace WaterProject.Infrastructure
 
 
 
-        public PaginationTagHelper(IUrlHelperFactory temp)
+        public PaginationTagHelper(IUrlHelperFactory temp) //constructor
 
         {
 
